@@ -14,6 +14,7 @@ import com.example.jetpackmvvm.ui.theme.JetpackMvvmTheme
 
 class MainActivity : ComponentActivity() {
 
+    //这是测试
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
