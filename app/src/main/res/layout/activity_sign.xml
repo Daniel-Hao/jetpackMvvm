@@ -1,31 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".login.SignActivity">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <!--<variable
+            name="userInfo"
+            type="com.example.jetpackmvvm.bean.UserBean" />-->
+
+        <import type="com.example.jetpackmvvm.bean.UserBean" />
+
+        <variable
+            name="userInfo"
+            type="UserBean" />
+
+        <variable
+            name="handler"
+            type="com.example.jetpackmvvm.login.handler.MyHandler" />
+        <!--<import
+            alias="UserBean2"
+            type="com.example.jetpackmvvm.bean.UserBean"/>
+        <variable
+            name="userInfo"
+            type="UserBean2" />-->
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".login.SignActivity">
 
 
-    <TextView
-        android:id="@+id/tv_11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="123456"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tv_11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="11"
+            android:text="@{userInfo.userName}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:onClick="@{handler::onClick}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <include
-        android:id="@+id/include_test"
-        layout="@layout/include_test"
-        app:layout_constraintTop_toBottomOf="@+id/tv_11" />
+        <TextView
+            android:id="@+id/tv_22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="22"
+            android:text="@{userInfo.userId}"
+            android:onClick="@{handler::onClick}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_test" />
 
-    <include
-        android:id="@+id/include_merge"
-        layout="@layout/include_merge_test" />
+        <include
+            android:id="@+id/include_test"
+            layout="@layout/include_test"
+            app:layout_constraintTop_toBottomOf="@+id/tv_11" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

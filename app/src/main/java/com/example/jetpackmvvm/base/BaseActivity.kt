@@ -9,7 +9,7 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity(){
 
     private lateinit var _viewBinding: T
 
-    protected val viewBinding get() = _viewBinding
+    protected val myViewBinding get() = _viewBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
