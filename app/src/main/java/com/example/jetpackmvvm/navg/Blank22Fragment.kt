@@ -1,21 +1,22 @@
 package com.example.jetpackmvvm.navg
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.jetpackmvvm.MMMActivity
 import com.example.jetpackmvvm.databinding.FragmentBlank22Binding
 
-class Blank22Fragment : Fragment(){
+class Blank22Fragment : Fragment() {
 
 
-    private lateinit var binding : FragmentBlank22Binding
+    private lateinit var binding: FragmentBlank22Binding
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = FragmentBlank22Binding.inflate(layoutInflater)
         return binding.root
@@ -24,24 +25,27 @@ class Blank22Fragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bundle = arguments
+
+        var userName = bundle?.getString("name")
+        var userAge = bundle?.getInt("age")
+        Log.e("hdl", "userName=${userName},userAge=${userAge}")
+
 
         binding.tvClose.setOnClickListener(View.OnClickListener {
 
+            Navigation.findNavController(binding.root).popBackStack()
 
-
+            findNavController().navigateUp()
         })
 
         binding.tvGo.setOnClickListener(View.OnClickListener {
 
-            MMMActivity.startMMMActivity(context,1,"123")
+            MMMActivity.startMMMActivity(context, 1, "123")
 
-            context?.let { it1 -> MMMActivity.startMMMActivity(it1,1,"123") }
+            context?.let { it1 -> MMMActivity.startMMMActivity(it1, 1, "123") }
 
         })
-
-
-
-
 
 
     }

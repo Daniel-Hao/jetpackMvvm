@@ -11,9 +11,22 @@
         android:label="fragment_blank"
         tools:layout="@layout/fragment_blank" >
 
+
+
         <action android:id="@+id/action_blankFragment_to_blank22Fragment"
 
             app:destination="@+id/blank22Fragment"/>
+
+        <!--<argument
+            android:name="userName"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="unknown" />
+
+        <argument
+            android:name="userAge"
+            app:argType="integer"
+            android:defaultValue="0"/>-->
 
     </fragment>
 

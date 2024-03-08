@@ -10,6 +10,8 @@ class MMMActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val num = intent.getIntExtra(EXTRA_NUM, 0)
         val name = intent.getStringExtra(EXTRA_NAME)
+
+        setContentView(R.layout.activity_login)
     }
 
     companion object {
