@@ -6,8 +6,18 @@ import androidx.lifecycle.ViewModel
 
 class LoginViewModel : ViewModel() {
 
-    private val _data = MediatorLiveData<String>()
+     val _data = MediatorLiveData<String>()
 
-    val  myData : LiveData<String> get() = _data
+
+    val myData: MediatorLiveData<String> get() = _data
+
+    fun setCC(): String {
+
+
+        _data.value = "456"
+
+
+        return _data.value!!
+    }
 
 }

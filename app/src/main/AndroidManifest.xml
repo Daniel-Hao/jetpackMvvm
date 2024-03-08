@@ -17,6 +17,9 @@
             android:exported="false" />
         <activity
             android:name=".login.MyDataBindingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RootActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.JetpackMvvm">

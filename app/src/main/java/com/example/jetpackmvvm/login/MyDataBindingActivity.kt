@@ -1,9 +1,11 @@
 package com.example.jetpackmvvm.login
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ReportFragment.Companion.reportFragment
 import com.example.jetpackmvvm.R
 import com.example.jetpackmvvm.base.LoginViewModel
 import com.example.jetpackmvvm.base.MyLifeObserver
@@ -14,7 +16,7 @@ import com.example.jetpackmvvm.login.handler.MyHandler
 
 class MyDataBindingActivity : AppCompatActivity() {
 
-    lateinit var _dataBinding: ActivitySignBinding
+    private lateinit var _dataBinding: ActivitySignBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_sign)
@@ -41,11 +43,15 @@ class MyDataBindingActivity : AppCompatActivity() {
         lifecycle.addObserver(MyLifeObserver())
 
 
-         val viewModel : LoginViewModel by viewModels()
+        val viewModel: LoginViewModel by viewModels()
 
-        viewModel.myData.observe(this,{newData ->
-
+        viewModel.myData.observe(this, fun(it: String) {
+            Toast.makeText(this, it, Toast.LENGTH_LONG).show()
         })
+        viewModel.myData.postValue("456")
 
     }
+
+
+
 }
