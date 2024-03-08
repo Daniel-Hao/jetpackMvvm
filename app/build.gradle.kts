@@ -79,6 +79,9 @@ dependencies {
     implementation("androidx.room:room-ktx:2.6.1")
     ksp("androidx.room:room-compiler:2.6.1")
     annotationProcessor("androidx.room:room-compiler:2.6.1")
+    //
+    // Kotlin + coroutines
+    implementation("androidx.work:work-runtime-ktx:2.9.0")
 
     //
     debugImplementation("androidx.compose.ui:ui-tooling")
