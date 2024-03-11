@@ -12,6 +12,10 @@ lifecycle
 ############################################################
 viewModel
 
+可以简化写法
+by viewModels()
+viewModels() 是一个 Kotlin 扩展函数,用于在 Activity 或 Fragment 中创建 ViewModel 实例
+viewModel = ViewModelProvider(this,MainViewModel.MainViewModelFactory()).get(MainViewModel::class.java)
 ############################################################
 livedata
 
