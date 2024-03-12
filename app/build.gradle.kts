@@ -89,7 +89,7 @@ dependencies {
     //implementation("com.squareup.okhttp3:okhttp:4.12.0")
     //implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
 
-
+    implementation("com.airbnb.android:lottie:4.2.0")
     //
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
