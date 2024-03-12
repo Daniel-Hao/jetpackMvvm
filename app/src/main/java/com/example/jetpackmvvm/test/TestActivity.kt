@@ -16,6 +16,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.InputStreamReader
+import java.util.ArrayList
 
 class TestActivity : AppCompatActivity(), View.OnClickListener {
     //private lateinit var tv11: TextView
@@ -26,22 +27,22 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
         //tv11.setOnClickListener(this)
 
 
-        val  job1 = mScope.launch {
+        val job1 = mScope.launch {
             delay(1000)
         }
 
-        val  job2 = mScope.launch(Dispatchers.IO){
+        val job2 = mScope.launch(Dispatchers.IO) {
 
-            async {  }
+            async { }
 
-            withContext(Dispatchers.Main){
+            withContext(Dispatchers.Main) {
 
             }
         }
 
         val jsonFile = assets.open("animation.json")
         val json = InputStreamReader(jsonFile).readText()
-        Log.e("hdl","json=${json}")
+        //Log.e("hdl", "json=${json}")
 
         val lottieAnimationView = findViewById<LottieAnimationView>(R.id.la_view)
         lottieAnimationView.setAnimation("animation.json")
@@ -51,20 +52,31 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
         lottieAnimationView.setOnClickListener(View.OnClickListener {
             lottieAnimationView.playAnimation()
         })
+        ParseBookContentUtil.parse(baseContext, 1, "")
+        /*var list: ArrayList<BookContent> = ParseBookContentUtil.parse(baseContext, 1, "")
+        for (index in list.indices) {
+            Log.e("hdl", "${index}=${list[index].chapterName}")
+        }*/
+
     }
 
-    override fun onClick(v: View) {
-        /*if (v.id == R.id.tv_11) {
+    override fun onClick(v: View) {/*if (v.id == R.id.tv_11) {
 
         }*/
+
+
     }
 
-    private fun animationStart(context :Context) {
+    private fun getExecStrs(str: String) {
+
+    }
+
+    private fun animationStart(context: Context) {
         val jsonFile = assets.open("animation.json")
         val json = InputStreamReader(jsonFile).readText()
 
         //val animation = AnimatorInflater.loadAnimator(context, R.animator.animation)
-       // animation.setTarget(view)
+        // animation.setTarget(view)
         //animation.start()
 
     }
